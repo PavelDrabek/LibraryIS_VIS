@@ -14,7 +14,8 @@ namespace LIS.DataMappersMySQL
         public override string TableName { get { return "Book"; } }
         public override string PrimaryKey { get { return "book_id"; } }
         public override string[] OtherKeys { get { return new string[]{ "title", "isbn", "pages", "genre_id", "author_id", "publisher_id" }; } }
-        public override string[] OtherValues(Book b) { return new string[] { b.Title, b.ISBN, b.Pages.ToString(), b.GenreID.ToString(), b.AuthorID.ToString(), b.PublisherID.ToString() }; }
+        public override string[] GetOtherValues(Book b) { return new string[] { b.Title, b.ISBN, b.Pages.ToString(), b.GenreID.ToString(), b.AuthorID.ToString(), b.PublisherID.ToString() }; }
+        public override int GetPrimaryKeyValue(Book b) { return b.ID; }
 
         protected override Book ParseReader (MySqlDataReader reader)
         {
@@ -30,34 +31,17 @@ namespace LIS.DataMappersMySQL
             };
         }
 
-        public override Book Get(int ID)
+        protected override MySqlParameter[] GetInsertParameters(Book b) 
         {
-            throw new NotImplementedException();
+            return new MySqlParameter[] {
+                new MySqlParameter("@title", b.Title), 
+                new MySqlParameter("@isbn", b.ISBN), 
+                new MySqlParameter("@pages", b.Pages), 
+                new MySqlParameter("@genre_id", b.GenreID), 
+                new MySqlParameter("@author_id", b.AuthorID), 
+                new MySqlParameter("@publisher_id", b.PublisherID)
+            };
         }
 
-        public override Book Get(Book instance)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool Insert(Book instance)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool Update(Book instance)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool Delete(int ID)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool Delete(Book instance)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

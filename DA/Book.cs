@@ -20,5 +20,16 @@ namespace LIS.Entities
         public Publisher publisher { get; set; }
         public Author author { get; set; }
         public Genre genre { get; set; }
+
+        public override string ToString() {
+            return "{ ID: " + ID +
+                ", Title: " + Title +
+                ", AuthorID: " + AuthorID +
+                ", GenreID: " + GenreID +
+                ", ISBN: " + ISBN +
+                ", PublisherID: " + PublisherID +
+                ", Language: " + Language +
+                ", Pages: " + Pages;
+        }
     }
 }
