@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LIS.Entities
 {
-    class Borrow
+    public class Borrow
     {
         public int ID { get; set; }
         public DateTime Date { get; set; }
