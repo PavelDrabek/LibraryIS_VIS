@@ -47,5 +47,19 @@ namespace LIS.MapperLogic
                     throw new WrongDataSourceException("Not known DataSource " + dataSource);
             }
         }
+
+        public static DataMapper<Author> CreateAuthorMapper()
+        {
+            if (!isInitialized) {
+                Init();
+            }
+
+            switch (dataSource) {
+                case "MySQL": return new AuthorMapperMySQL();
+                case "XML": throw new NotImplementedException();
+                default:
+                    throw new WrongDataSourceException("Not known DataSource " + dataSource);
+            }
+        }
     }
 }

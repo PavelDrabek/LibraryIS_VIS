@@ -22,6 +22,8 @@ namespace LibraryIS_WinForm
             LoginController loginController = new LoginController(loginWindow);
 
             loginWindow.ShowDialog();
+
+            Application.Run(new Form1());
         }
     }
 }

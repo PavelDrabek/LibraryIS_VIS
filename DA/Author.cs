@@ -14,5 +14,13 @@ namespace LIS.Entities
         public string LastName { get; set; }
 
         public string Name { get { return FirstName + " " + LastName; } }
+
+        public override string ToString()
+        {
+            return "{ ID: " + ID +
+                ", FirstName: " + FirstName +
+                ", MiddleName: " + MiddleName +
+                ", LastName: " + LastName;
+        }
     }
 }

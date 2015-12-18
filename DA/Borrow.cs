@@ -16,5 +16,14 @@ namespace LIS.Entities
 
         public User user { get; set; }
         public Book book { get; set; }
+
+        public override string ToString()
+        {
+            return "{ ID: " + ID +
+                ", Date: " + Date.ToString() +
+                ", Returned: " + (Returned == null ? "null" : Returned.ToString()) +
+                ", BookID: " + BookID +
+                ", UserID: " + UserID;
+        }
     }
 }

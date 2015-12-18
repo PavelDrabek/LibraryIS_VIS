@@ -14,50 +14,46 @@ namespace LibraryIS_WinForm
 {
     public partial class Form1 : Form
     {
-        BookService bookService = null;
+        EntityService<Author> service = null;
 
         public Form1()
         {
             InitializeComponent();
 
-
-            bookService = new BookService();
+            service = new AuthorService();
         }
 
         private void btnSelectAll_Click(object sender, EventArgs e) {
-            List<Book> books = bookService.GetAllBooks();
-
-            String[] str = books.Select(x => x.ToString()).ToArray();
+            String[] str = service.GetAll().Select(x => x.ToString()).ToArray();
             MessageBox.Show(string.Join("\n", str));
         }
 
         private void btnSelectById_Click(object sender, EventArgs e) {
-            Book book = bookService.GetBook(GetIDFromTextBox());
-            MessageBox.Show(book.ToString());
+            MessageBox.Show(service.Get(GetIDFromTextBox()).ToString());
         }
 
         private void btnUpdatePages_Click(object sender, EventArgs e) {
-            Book book = bookService.GetBook(GetIDFromTextBox());
-            book.Pages = GetPagesFromTextBox();
-            MessageBox.Show(bookService.UpdateBook(book).ToString());
+            Author entity = service.Get(GetIDFromTextBox());
+            entity.FirstName = GetPagesFromTextBox();
+            MessageBox.Show(service.Update(entity).ToString());
         }
 
         private void btnInsertPages_Click(object sender, EventArgs e) {
-            Book book = bookService.GetBook(GetIDFromTextBox());
-            book.Pages = GetPagesFromTextBox();
-            MessageBox.Show(bookService.InsertBook(book).ToString());
+            Author entity = service.Get(GetIDFromTextBox());
+            entity.FirstName = GetPagesFromTextBox();
+            MessageBox.Show(service.Insert(entity).ToString());
         }
 
         private void btnDeleteById_Click(object sender, EventArgs e) {
-            MessageBox.Show(bookService.DeleteBook(GetIDFromTextBox()).ToString());
+            MessageBox.Show(service.Delete(GetIDFromTextBox()).ToString());
         }
 
         private int GetIDFromTextBox() {
             return int.Parse(tbID.Text);
         }
 
-        private int GetPagesFromTextBox() {
-            return int.Parse(tbPages.Text);
+        private string GetPagesFromTextBox() {
+            return tbPages.Text;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

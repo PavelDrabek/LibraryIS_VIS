@@ -42,11 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorMapperMySQL.cs" />
     <Compile Include="BookMapperMySQL.cs" />
     <Compile Include="DataLoginMySQL.cs" />
     <Compile Include="DataMapperMySQL.cs" />
     <Compile Include="FactoryConnection.cs" />
+    <Compile Include="GenreMapperMySQL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublisherMapperMySQL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DA\LIS.Entities.csproj">
