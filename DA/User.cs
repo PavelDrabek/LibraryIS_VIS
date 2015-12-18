@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LIS.Entities
 {
-    public class User
+    public class User : Entity
     {
         public int ID { get; set; }
         public string UserName { get; set; }

@@ -34,6 +34,22 @@ namespace LIS.MapperLogic
             }
         }
 
+        /*
+        public static DataMapper<T> CreateMapper<T>() where T : Entity
+        {
+            object mapper = null;
+            Type type = typeof(T);
+
+            if (typeof(Author) == type) {
+                mapper = CreateAuthorMapper();
+            } else if (typeof(Book) == type) {
+                mapper = CreateBookMapper();
+            }
+
+            return (DataMapper<T>)Convert.ChangeType(mapper, typeof(DataMapper<T>));
+        }
+        */
+
         public static DataMapper<Book> CreateBookMapper()
         {
             if (!isInitialized) {

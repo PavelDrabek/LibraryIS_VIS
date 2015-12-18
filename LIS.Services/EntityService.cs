@@ -1,4 +1,5 @@
-﻿using LIS.IDataMappers;
+﻿using LIS.Entities;
+using LIS.IDataMappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LIS.Services
 {
-    public abstract class EntityService<T>
+    public abstract class EntityService<T> where T : Entity
     {
         DataMapper<T> mapper;
         protected abstract DataMapper<T> GetDataMapper();

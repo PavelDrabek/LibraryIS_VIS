@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LIS.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LIS.IDataMappers
 {
-    public abstract class DataMapper<T>
+    public abstract class DataMapper<T> where T : Entity
     {
         public abstract List<T> Select();
         public abstract T Get(int ID);

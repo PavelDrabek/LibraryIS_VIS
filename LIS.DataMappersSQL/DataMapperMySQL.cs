@@ -1,4 +1,5 @@
-﻿using LIS.IDataMappers;
+﻿using LIS.Entities;
+using LIS.IDataMappers;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LIS.DataMappersMySQL
 {
-    public abstract class DataMapperMySQL<T> : DataMapper<T>
+    public abstract class DataMapperMySQL<T> : DataMapper<T> where T : Entity
     {
         protected MySqlConnection connection;
         public abstract string TableName { get; }
