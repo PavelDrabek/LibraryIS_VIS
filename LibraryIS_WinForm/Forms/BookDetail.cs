@@ -8,9 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryIS_WinForm {
-    public partial class UserControl1 : UserControl {
-        public UserControl1() {
+namespace LibraryIS_WinForm.Forms
+{
+    public partial class BookDetail : UserControl
+    {
+        public BookDetail()
+        {
             InitializeComponent();
         }
     }

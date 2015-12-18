@@ -1,4 +1,5 @@
 ﻿using LibraryIS_WinForm.Controllers;
+using LibraryIS_WinForm.Forms;
 using LibraryIS_WinForm.Views;
 using System;
 using System.Collections.Generic;
@@ -34,14 +35,14 @@ namespace LibraryIS_WinForm
         public void OnLoginOK()
         {
             this.Hide();
-            Form1 f = new Form1();
+            Form f = new BookRegistration();
             f.Closed += (s, args) => this.Close(); 
             f.ShowDialog();
         }
 
         public void OnLoginError(string errorMsg)
         {
-            MessageBox.Show(errorMsg);
+            MessageBox.Show(errorMsg, "Chyba pri prihlasovani");
         }
 
         public string UserName {
