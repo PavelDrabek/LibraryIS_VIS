@@ -20,6 +20,20 @@ namespace LIS.MapperLogic
             isInitialized = true;
         }
 
+        public static DataLogin CreateDataLogin()
+        {
+            if (!isInitialized) {
+                Init();
+            }
+
+            switch (dataSource) {
+                case "MySQL": return new DataLoginMySQL();
+                case "XML": throw new NotImplementedException();
+                default:
+                    throw new WrongDataSourceException("Not known DataSource " + dataSource);
+            }
+        }
+
         public static DataMapper<Book> CreateBookMapper()
         {
             if (!isInitialized) {

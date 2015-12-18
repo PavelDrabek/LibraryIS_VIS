@@ -43,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookMapperMySQL.cs" />
+    <Compile Include="DataLoginMySQL.cs" />
     <Compile Include="DataMapperMySQL.cs" />
+    <Compile Include="FactoryConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -20,6 +20,7 @@ namespace LibraryIS_WinForm
         {
             InitializeComponent();
 
+
             bookService = new BookService();
         }
 
@@ -57,6 +58,14 @@ namespace LibraryIS_WinForm
 
         private int GetPagesFromTextBox() {
             return int.Parse(tbPages.Text);
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+            LoginService ls = new LoginService();
+            bool result = ls.Login(tbUsername.Text, tbPassword.Text);
+            MessageBox.Show(result.ToString());
         }
     }
 }

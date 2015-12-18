@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryIS_WinForm.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,11 @@ namespace LibraryIS_WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            LoginWindow loginWindow = new LoginWindow();
+            LoginController loginController = new LoginController(loginWindow);
+
+            loginWindow.ShowDialog();
         }
     }
 }

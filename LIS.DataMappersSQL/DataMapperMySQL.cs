@@ -44,12 +44,7 @@ namespace LIS.DataMappersMySQL
         
         public DataMapperMySQL()
         {
-            string server = "localhost";
-            string database = "knihovna";
-            string uid = "root";
-            string password = "root";
-            string connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-            connection = new MySqlConnection(connectionString);
+            connection = FactoryConnection.Create();
         }
 
         public override List<T> Select()
