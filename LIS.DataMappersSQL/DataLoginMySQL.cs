@@ -17,7 +17,7 @@ namespace LIS.DataMappersMySQL
 
         public DataLoginMySQL()
         {
-            connection = FactoryConnection.Create();
+            connection = ConnectionFactory.Create();
         }
 
         protected override User GetUser(string userName, string password)

@@ -77,5 +77,47 @@ namespace LIS.MapperLogic
                     throw new WrongDataSourceException("Not known DataSource " + dataSource);
             }
         }
+
+        public static DataMapper<Genre> CreateGenreMapper()
+        {
+            if (!isInitialized) {
+                Init();
+            }
+
+            switch (dataSource) {
+                case "MySQL": return new GenreMapperMySQL();
+                case "XML": throw new NotImplementedException();
+                default:
+                    throw new WrongDataSourceException("Not known DataSource " + dataSource);
+            }
+        }
+
+        public static DataMapper<Publisher> CreatePublisherMapper()
+        {
+            if (!isInitialized) {
+                Init();
+            }
+
+            switch (dataSource) {
+                case "MySQL": return new PublisherMapperMySQL();
+                case "XML": throw new NotImplementedException();
+                default:
+                    throw new WrongDataSourceException("Not known DataSource " + dataSource);
+            }
+        }
+
+        public static DataMapper<User> CreateUserMapper()
+        {
+            if (!isInitialized) {
+                Init();
+            }
+
+            switch (dataSource) {
+                case "MySQL": return new UserMapperMySQL();
+                case "XML": throw new NotImplementedException();
+                default:
+                    throw new WrongDataSourceException("Not known DataSource " + dataSource);
+            }
+        }
     }
 }

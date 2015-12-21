@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LIS.DataMappersMySQL
 {
-    public static class FactoryConnection
+    public static class ConnectionFactory
     {
         public static MySqlConnection Create() {
             string server = "localhost";

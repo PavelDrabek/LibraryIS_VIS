@@ -45,7 +45,7 @@ namespace LIS.DataMappersMySQL
         
         public DataMapperMySQL()
         {
-            connection = FactoryConnection.Create();
+            connection = ConnectionFactory.Create();
         }
 
         public override List<T> Select()

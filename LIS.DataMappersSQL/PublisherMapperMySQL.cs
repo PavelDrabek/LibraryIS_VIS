@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LIS.DataMappersMySQL
 {
-    class PublisherMapperMySQL : DataMapperMySQL<Publisher>
+    public class PublisherMapperMySQL : DataMapperMySQL<Publisher>
     {
         public override string TableName { get { return "Publisher"; } }
         public override string PrimaryKey { get { return "publisher_id"; } }
