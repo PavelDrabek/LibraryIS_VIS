@@ -58,28 +58,22 @@ namespace LibraryIS_WinForm.Forms
             set { tbIsbn.Text = value; }
         }
 
-        public string Language
-        {
-            get { return tbLanguage.Text; }
-            set { tbLanguage.Text = value; }
-        }
-
         public Publisher publisher
         {
             get { return _publisher; }
-            set { _publisher = value; }
+            set { cbPublisher.SelectedIndex = (value == null) ? -1 : publishers.FindIndex(x => x.ID == value.ID); }
         }
         
         public Genre genre
         {
             get { return _genre; }
-            set { _genre = value; }
+            set { cbGenre.SelectedIndex = (value == null) ? -1 : genres.FindIndex(x => x.ID == value.ID ); }
         }
 
         public Author author
         {
             get { return _author; }
-            set { _author = value; }
+            set { cbAuthor.SelectedIndex = (value == null) ? -1 : authors.FindIndex(x => x.ID == value.ID); }
         }
 
         public int ID
@@ -96,10 +90,28 @@ namespace LibraryIS_WinForm.Forms
 
         private void cbAuthor_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            if(cbAuthor.SelectedIndex >= 0) {
+            if (cbAuthor.SelectedIndex >= 0) {
                 _author = authors[cbAuthor.SelectedIndex];
             } else {
                 _author = null;
+            }
+        }
+
+        private void cbGenre_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (cbGenre.SelectedIndex >= 0) {
+                _genre = genres[cbGenre.SelectedIndex];
+            } else {
+                _genre = null;
+            }
+        }
+        
+        private void cbPublisher_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (cbPublisher.SelectedIndex >= 0) {
+                _publisher = publishers[cbPublisher.SelectedIndex];
+            } else {
+                _publisher = null;
             }
         }
     }

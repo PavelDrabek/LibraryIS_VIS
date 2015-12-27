@@ -58,12 +58,12 @@
             this.lvBooks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.Title,
-            this.Language,
             this.Author,
             this.Genre,
+            this.ISBN,
             this.Publisher,
-            this.Pages,
-            this.ISBN});
+            this.Language,
+            this.Pages});
             this.lvBooks.FullRowSelect = true;
             this.lvBooks.Location = new System.Drawing.Point(0, 28);
             this.lvBooks.MultiSelect = false;
@@ -85,18 +85,15 @@
             // 
             // Language
             // 
-            this.Language.DisplayIndex = 6;
             this.Language.Text = "Jazyk";
             // 
             // Author
             // 
-            this.Author.DisplayIndex = 2;
             this.Author.Text = "Autor";
             this.Author.Width = 126;
             // 
             // Genre
             // 
-            this.Genre.DisplayIndex = 3;
             this.Genre.Text = "Zanr";
             this.Genre.Width = 77;
             // 
@@ -106,13 +103,11 @@
             // 
             // Pages
             // 
-            this.Pages.DisplayIndex = 7;
             this.Pages.Text = "Pocet stran";
             this.Pages.Width = 67;
             // 
             // ISBN
             // 
-            this.ISBN.DisplayIndex = 4;
             this.ISBN.Text = "ISBN";
             // 
             // btnFilter

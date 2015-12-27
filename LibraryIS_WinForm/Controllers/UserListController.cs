@@ -1,8 +1,7 @@
-﻿using LibraryIS_WinForm.Views;
+﻿using LibraryIS_WinForm.IViews;
 using LIS.Entities;
 using LIS.Services;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace LibraryIS_WinForm.Controllers
 {
-    public class BookListController
+    public class UserListController
     {
-        IBookListView view = null;
-        BookService bookService;
-        List<Book> books;
+        IUserListView view = null;
+        UserService userService;
+        List<User> users;
 
-        public BookListController(IBookListView view)
+        public UserListController(IUserListView view)
         {
             this.view = view;
 
-            bookService = new BookService();
+            userService = new UserService();
             view.SetController(this);
             Refresh();
         }
@@ -28,15 +27,15 @@ namespace LibraryIS_WinForm.Controllers
         public void Refresh()
         {
             view.FilterText = "";
-            Show(bookService.GetAll());
+            Show(userService.GetAll());
         }
 
-        public void Show(List<Book> list)
+        public void Show(List<User> list)
         {
-            books = list;
+            users = list;
             view.ClearGrid();
-            foreach (Book book in books) {
-                view.AddToGrid(book);
+            foreach (User user in users) {
+                view.AddToGrid(user);
             }
 
             //view.SetSelectedInGrid(books[0]);
@@ -45,21 +44,20 @@ namespace LibraryIS_WinForm.Controllers
         public void Filter()
         {
             if (view.FilterText == "") {
-                Show(bookService.GetAll());
+                Show(userService.GetAll());
             } else {
-                Show(bookService.Search(view.FilterText));
+                Show(userService.Search(view.FilterText));
             }
         }
 
-        public Book GetSelectedBook()
+        public User GetSelectedBook()
         {
             int selectedIndex = view.GetSelectedIndex();
-            if (selectedIndex >= 0 && selectedIndex < books.Count) {
-                return books[selectedIndex];
+            if (selectedIndex >= 0 && selectedIndex < users.Count) {
+                return users[selectedIndex];
             } else {
                 return null;
             }
         }
     }
 }
-

@@ -20,7 +20,6 @@ namespace LibraryIS_WinForm.Forms
         public BookList()
         {
             InitializeComponent();
-            new BookListController(this);
         }
 
         public void SetController(BookListController controller)
@@ -30,7 +29,7 @@ namespace LibraryIS_WinForm.Forms
 
         private bool IsSomethingSelected()
         {
-            return (lvBooks.SelectedItems.Count > 0);
+            return (lvBooks.SelectedIndices.Count > 0);
         }
 
         public void ClearGrid()
@@ -43,32 +42,22 @@ namespace LibraryIS_WinForm.Forms
             string[] row = { 
                 book.ID.ToString(), 
                 book.Title, 
-                book.AuthorID.ToString(), 
-                book.GenreID.ToString(), 
+                book.author.ToString(), 
+                book.genre.ToString(), 
                 book.ISBN, 
-                book.PublisherID.ToString(), 
-                book.Language, 
+                book.publisher.ToString(), 
                 book.Pages.ToString() 
             };
             ListViewItem bookItem = new ListViewItem(row);
             lvBooks.Items.Add(bookItem);
         }
 
-        public string GetSelectedID()
+        public int GetSelectedIndex()
         {
             if (IsSomethingSelected()) {
-                return lvBooks.SelectedItems[0].SubItems[0].Text;
+                return lvBooks.SelectedIndices[0];
             } else {
-                return null;
-            }
-        }
-
-        public void SetSelectedInGrid(Book book)
-        {
-            foreach (ListViewItem row in lvBooks.Items) {
-                if (row.Text == book.ID.ToString()) {
-                    row.Selected = true;
-                }
+                return -1;
             }
         }
 

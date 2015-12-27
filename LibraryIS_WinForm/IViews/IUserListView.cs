@@ -6,16 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryIS_WinForm.Views
+namespace LibraryIS_WinForm.IViews
 {
-    public interface IBookListView
+    public interface IUserListView
     {
-        void SetController(BookListController controller);
+        void SetController(UserListController controller);
 
         void ClearGrid();
-        void AddToGrid(Book user);
-        string GetSelectedID();
-        void SetSelectedInGrid(Book user);
+        void AddToGrid(User user);
+        int GetSelectedIndex();
 
         string FilterText { get; set; }
     }

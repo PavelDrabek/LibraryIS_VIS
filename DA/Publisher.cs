@@ -13,8 +13,7 @@ namespace LIS.Entities
 
         public override string ToString()
         {
-            return "{ ID: " + ID +
-                ", Name: " + Name;
+            return Name;
         }
     }
 }

@@ -27,42 +27,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Book = new System.Windows.Forms.GroupBox();
-            this.bookDetail1 = new LibraryIS_WinForm.Forms.BookDetail();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bookList1 = new LibraryIS_WinForm.Forms.BookList();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabBooks = new System.Windows.Forms.TabPage();
-            this.btnBorrow = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
+            this.btnBookBorrow = new System.Windows.Forms.Button();
+            this.btnBookEdit = new System.Windows.Forms.Button();
+            this.btnBookDelete = new System.Windows.Forms.Button();
+            this.btnBookNew = new System.Windows.Forms.Button();
             this.tabUsers = new System.Windows.Forms.TabPage();
-            this.Book.SuspendLayout();
+            this.userList1 = new LibraryIS_WinForm.Views.UserList();
+            this.btnUserBorrow = new System.Windows.Forms.Button();
+            this.btnUserEdit = new System.Windows.Forms.Button();
+            this.btnUserDelete = new System.Windows.Forms.Button();
+            this.btnUserAdd = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabBooks.SuspendLayout();
+            this.tabUsers.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Book
-            // 
-            this.Book.Controls.Add(this.bookDetail1);
-            this.Book.Location = new System.Drawing.Point(6, 47);
-            this.Book.Name = "Book";
-            this.Book.Size = new System.Drawing.Size(232, 296);
-            this.Book.TabIndex = 11;
-            this.Book.TabStop = false;
-            this.Book.Text = "Detail";
-            // 
-            // bookDetail1
-            // 
-            this.bookDetail1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.bookDetail1.Location = new System.Drawing.Point(7, 20);
-            this.bookDetail1.Name = "bookDetail1";
-            this.bookDetail1.Size = new System.Drawing.Size(219, 272);
-            this.bookDetail1.TabIndex = 17;
             // 
             // groupBox1
             // 
@@ -70,9 +53,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.bookList1);
-            this.groupBox1.Location = new System.Drawing.Point(244, 6);
+            this.groupBox1.Location = new System.Drawing.Point(6, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(682, 395);
+            this.groupBox1.Size = new System.Drawing.Size(626, 332);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seznam";
@@ -82,9 +65,10 @@
             this.bookList1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.bookList1.FilterText = "";
             this.bookList1.Location = new System.Drawing.Point(6, 19);
             this.bookList1.Name = "bookList1";
-            this.bookList1.Size = new System.Drawing.Size(670, 370);
+            this.bookList1.Size = new System.Drawing.Size(614, 307);
             this.bookList1.TabIndex = 0;
             // 
             // tabControl1
@@ -97,99 +81,161 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(940, 433);
+            this.tabControl1.Size = new System.Drawing.Size(646, 399);
             this.tabControl1.TabIndex = 18;
             // 
             // tabBooks
             // 
-            this.tabBooks.Controls.Add(this.btnBorrow);
-            this.tabBooks.Controls.Add(this.btnSave);
-            this.tabBooks.Controls.Add(this.Book);
-            this.tabBooks.Controls.Add(this.btnDelete);
-            this.tabBooks.Controls.Add(this.btnNew);
+            this.tabBooks.Controls.Add(this.btnBookBorrow);
+            this.tabBooks.Controls.Add(this.btnBookEdit);
+            this.tabBooks.Controls.Add(this.btnBookDelete);
+            this.tabBooks.Controls.Add(this.btnBookNew);
             this.tabBooks.Controls.Add(this.groupBox1);
             this.tabBooks.Location = new System.Drawing.Point(4, 22);
             this.tabBooks.Name = "tabBooks";
             this.tabBooks.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBooks.Size = new System.Drawing.Size(932, 407);
+            this.tabBooks.Size = new System.Drawing.Size(638, 373);
             this.tabBooks.TabIndex = 0;
             this.tabBooks.Text = "Knihy";
             this.tabBooks.UseVisualStyleBackColor = true;
             // 
-            // btnBorrow
+            // btnBookBorrow
             // 
-            this.btnBorrow.Location = new System.Drawing.Point(6, 18);
-            this.btnBorrow.Name = "btnBorrow";
-            this.btnBorrow.Size = new System.Drawing.Size(232, 23);
-            this.btnBorrow.TabIndex = 21;
-            this.btnBorrow.Text = "Pridat";
-            this.btnBorrow.UseVisualStyleBackColor = true;
+            this.btnBookBorrow.Location = new System.Drawing.Point(6, 6);
+            this.btnBookBorrow.Name = "btnBookBorrow";
+            this.btnBookBorrow.Size = new System.Drawing.Size(232, 23);
+            this.btnBookBorrow.TabIndex = 21;
+            this.btnBookBorrow.Text = "Zapujcit";
+            this.btnBookBorrow.UseVisualStyleBackColor = true;
+            this.btnBookBorrow.Click += new System.EventHandler(this.btnBorrow_Click);
             // 
-            // btnSave
+            // btnBookEdit
             // 
-            this.btnSave.Location = new System.Drawing.Point(157, 363);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 20;
-            this.btnSave.Text = "Ulozit";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnBookEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBookEdit.Location = new System.Drawing.Point(488, 6);
+            this.btnBookEdit.Name = "btnBookEdit";
+            this.btnBookEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnBookEdit.TabIndex = 20;
+            this.btnBookEdit.Text = "Upravit";
+            this.btnBookEdit.UseVisualStyleBackColor = true;
+            this.btnBookEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnDelete
+            // btnBookDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(85, 363);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(66, 23);
-            this.btnDelete.TabIndex = 19;
-            this.btnDelete.Text = "Vymazat";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnBookDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBookDelete.Location = new System.Drawing.Point(569, 6);
+            this.btnBookDelete.Name = "btnBookDelete";
+            this.btnBookDelete.Size = new System.Drawing.Size(66, 23);
+            this.btnBookDelete.TabIndex = 19;
+            this.btnBookDelete.Text = "Vymazat";
+            this.btnBookDelete.UseVisualStyleBackColor = true;
+            this.btnBookDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnNew
+            // btnBookNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(13, 363);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(66, 23);
-            this.btnNew.TabIndex = 18;
-            this.btnNew.Text = "Pridat";
-            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnBookNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBookNew.Location = new System.Drawing.Point(416, 6);
+            this.btnBookNew.Name = "btnBookNew";
+            this.btnBookNew.Size = new System.Drawing.Size(66, 23);
+            this.btnBookNew.TabIndex = 18;
+            this.btnBookNew.Text = "Pridat";
+            this.btnBookNew.UseVisualStyleBackColor = true;
+            this.btnBookNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // tabUsers
             // 
+            this.tabUsers.Controls.Add(this.btnUserBorrow);
+            this.tabUsers.Controls.Add(this.btnUserEdit);
+            this.tabUsers.Controls.Add(this.btnUserDelete);
+            this.tabUsers.Controls.Add(this.btnUserAdd);
+            this.tabUsers.Controls.Add(this.userList1);
             this.tabUsers.Location = new System.Drawing.Point(4, 22);
             this.tabUsers.Name = "tabUsers";
             this.tabUsers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUsers.Size = new System.Drawing.Size(917, 459);
+            this.tabUsers.Size = new System.Drawing.Size(638, 373);
             this.tabUsers.TabIndex = 1;
             this.tabUsers.Text = "Clenove";
             this.tabUsers.UseVisualStyleBackColor = true;
+            // 
+            // userList1
+            // 
+            this.userList1.FilterText = "";
+            this.userList1.Location = new System.Drawing.Point(7, 35);
+            this.userList1.Name = "userList1";
+            this.userList1.Size = new System.Drawing.Size(625, 332);
+            this.userList1.TabIndex = 0;
+            // 
+            // btnUserBorrow
+            // 
+            this.btnUserBorrow.Location = new System.Drawing.Point(7, 6);
+            this.btnUserBorrow.Name = "btnUserBorrow";
+            this.btnUserBorrow.Size = new System.Drawing.Size(232, 23);
+            this.btnUserBorrow.TabIndex = 25;
+            this.btnUserBorrow.Text = "Zapujcit";
+            this.btnUserBorrow.UseVisualStyleBackColor = true;
+            // 
+            // btnUserEdit
+            // 
+            this.btnUserEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUserEdit.Location = new System.Drawing.Point(489, 6);
+            this.btnUserEdit.Name = "btnUserEdit";
+            this.btnUserEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnUserEdit.TabIndex = 24;
+            this.btnUserEdit.Text = "Upravit";
+            this.btnUserEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnUserDelete
+            // 
+            this.btnUserDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUserDelete.Location = new System.Drawing.Point(570, 6);
+            this.btnUserDelete.Name = "btnUserDelete";
+            this.btnUserDelete.Size = new System.Drawing.Size(66, 23);
+            this.btnUserDelete.TabIndex = 23;
+            this.btnUserDelete.Text = "Vymazat";
+            this.btnUserDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnUserAdd
+            // 
+            this.btnUserAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUserAdd.Location = new System.Drawing.Point(417, 6);
+            this.btnUserAdd.Name = "btnUserAdd";
+            this.btnUserAdd.Size = new System.Drawing.Size(66, 23);
+            this.btnUserAdd.TabIndex = 22;
+            this.btnUserAdd.Text = "Pridat";
+            this.btnUserAdd.UseVisualStyleBackColor = true;
             // 
             // BookRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 458);
+            this.ClientSize = new System.Drawing.Size(670, 424);
             this.Controls.Add(this.tabControl1);
+            this.MinimumSize = new System.Drawing.Size(515, 38);
             this.Name = "BookRegistration";
             this.Text = "BookRegistration";
-            this.Book.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabBooks.ResumeLayout(false);
+            this.tabUsers.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox Book;
         private System.Windows.Forms.GroupBox groupBox1;
-        private BookDetail bookDetail1;
         private BookList bookList1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabBooks;
         private System.Windows.Forms.TabPage tabUsers;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.Button btnBorrow;
+        private System.Windows.Forms.Button btnBookEdit;
+        private System.Windows.Forms.Button btnBookDelete;
+        private System.Windows.Forms.Button btnBookNew;
+        private System.Windows.Forms.Button btnBookBorrow;
+        private Views.UserList userList1;
+        private System.Windows.Forms.Button btnUserBorrow;
+        private System.Windows.Forms.Button btnUserEdit;
+        private System.Windows.Forms.Button btnUserDelete;
+        private System.Windows.Forms.Button btnUserAdd;
     }
 }

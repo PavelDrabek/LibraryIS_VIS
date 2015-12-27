@@ -29,8 +29,6 @@
         {
             this.label7 = new System.Windows.Forms.Label();
             this.tbPages = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbLanguage = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tbIsbn = new System.Windows.Forms.TextBox();
@@ -46,7 +44,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(2, 234);
+            this.label7.Location = new System.Drawing.Point(3, 196);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 13);
             this.label7.TabIndex = 27;
@@ -56,28 +54,10 @@
             // 
             this.tbPages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPages.Location = new System.Drawing.Point(1, 250);
+            this.tbPages.Location = new System.Drawing.Point(2, 212);
             this.tbPages.Name = "tbPages";
             this.tbPages.Size = new System.Drawing.Size(197, 20);
             this.tbPages.TabIndex = 26;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(2, 195);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 13);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Jazyk";
-            // 
-            // tbLanguage
-            // 
-            this.tbLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbLanguage.Location = new System.Drawing.Point(1, 211);
-            this.tbLanguage.Name = "tbLanguage";
-            this.tbLanguage.Size = new System.Drawing.Size(197, 20);
-            this.tbLanguage.TabIndex = 24;
             // 
             // label5
             // 
@@ -149,6 +129,7 @@
             this.cbGenre.Name = "cbGenre";
             this.cbGenre.Size = new System.Drawing.Size(199, 21);
             this.cbGenre.TabIndex = 28;
+            this.cbGenre.SelectedIndexChanged += new System.EventHandler(this.cbGenre_SelectedIndexChanged);
             // 
             // cbAuthor
             // 
@@ -166,6 +147,7 @@
             this.cbPublisher.Name = "cbPublisher";
             this.cbPublisher.Size = new System.Drawing.Size(199, 21);
             this.cbPublisher.TabIndex = 30;
+            this.cbPublisher.SelectedIndexChanged += new System.EventHandler(this.cbPublisher_SelectedIndexChanged);
             // 
             // BookDetail
             // 
@@ -176,8 +158,6 @@
             this.Controls.Add(this.cbGenre);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbPages);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.tbLanguage);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbIsbn);
@@ -186,7 +166,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbTitle);
             this.Name = "BookDetail";
-            this.Size = new System.Drawing.Size(199, 273);
+            this.Size = new System.Drawing.Size(199, 239);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,8 +176,6 @@
 
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbPages;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tbLanguage;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbIsbn;
