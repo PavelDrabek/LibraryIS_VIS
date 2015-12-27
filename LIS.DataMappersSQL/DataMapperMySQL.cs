@@ -55,7 +55,7 @@ namespace LIS.DataMappersMySQL
             return SelectWithCommand(command);
         }
 
-        public List<T> SelectWithCommand(MySqlCommand command)
+        public virtual List<T> SelectWithCommand(MySqlCommand command)
         {
             List<T> returnValue = new List<T>();
 

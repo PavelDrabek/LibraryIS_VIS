@@ -17,6 +17,17 @@ namespace LIS.DataMappersMySQL
         public override string[] GetOtherValues(Book b) { return new string[] { b.Title, b.ISBN, b.Pages.ToString(), b.GenreID.ToString(), b.AuthorID.ToString(), b.PublisherID.ToString() }; }
         public override int GetPrimaryKeyValue(Book b) { return b.ID; }
 
+        private GenreMapperMySQL genreMapper;
+        private AuthorMapperMySQL authorMapper;
+        private PublisherMapperMySQL publisherMapper;
+
+        public BookMapperMySQL() : base()
+        {
+            genreMapper = new GenreMapperMySQL();
+            authorMapper = new AuthorMapperMySQL();
+            publisherMapper = new PublisherMapperMySQL();
+        }
+
         protected override Book ParseReader (MySqlDataReader reader)
         {
             return new Book()
@@ -29,6 +40,19 @@ namespace LIS.DataMappersMySQL
                 AuthorID = reader.GetInt32(5),
                 PublisherID = reader.GetInt32(6)
             };
+        }
+
+        public override List<Book> SelectWithCommand(MySqlCommand command)
+        {
+            List<Book> books = base.SelectWithCommand(command);
+
+            for (int i = 0; i < books.Count; i++) {
+                books[i].author = authorMapper.Get(books[i].AuthorID);
+                books[i].genre = genreMapper.Get(books[i].GenreID);
+                books[i].publisher = publisherMapper.Get(books[i].PublisherID);
+            }
+
+            return books;
         }
 
         protected override MySqlParameter[] GetInsertParameters(Book b) 
