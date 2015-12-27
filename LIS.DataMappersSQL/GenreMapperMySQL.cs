@@ -30,5 +30,12 @@ namespace LIS.DataMappersMySQL
                 new MySqlParameter("@name", p.Name) 
             };
         }
+
+        protected override MySqlCommand GetSearchCommand(string searchText)
+        {
+            string LIKE = "LIKE '%" + searchText + "%'";
+            string QUERY = QUERY_SELECT + " WHERE name " + LIKE;
+            return new MySqlCommand(QUERY, connection);
+        }
     }
 }

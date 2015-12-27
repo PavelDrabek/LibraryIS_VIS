@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace LIS.Services
 {
-    public class BookService : EntityService<Book> {
-
-        protected override DataMapper<Book> GetDataMapper()
+    public class GenreService : EntityService<Genre>
+    {
+        protected override DataMapper<Genre> GetDataMapper()
         {
-            return MapperFactory.CreateBookMapper();
+            return MapperFactory.CreateGenreMapper();
         }
     }
 }

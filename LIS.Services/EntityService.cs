@@ -1,5 +1,5 @@
 ﻿using LIS.Entities;
-using LIS.IDataMappers;
+using LIS.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +35,10 @@ namespace LIS.Services
 
         public bool Delete(int id) {
             return mapper.Delete(id);
+        }
+
+        public List<T> Search(string searchText) {
+            return mapper.Search(searchText);
         }
     }
 }

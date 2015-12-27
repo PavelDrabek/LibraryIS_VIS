@@ -1,4 +1,5 @@
 ﻿using LibraryIS_WinForm.Controllers;
+using LibraryIS_WinForm.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,9 @@ namespace LibraryIS_WinForm
 
             loginWindow.ShowDialog();
 
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
+            Application.Run(new FormNewBook());
+            
         }
     }
 }

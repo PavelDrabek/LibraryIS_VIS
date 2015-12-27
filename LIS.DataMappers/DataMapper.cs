@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LIS.IDataMappers
+namespace LIS.DAO
 {
     public abstract class DataMapper<T> where T : Entity
     {
@@ -16,5 +16,6 @@ namespace LIS.IDataMappers
         public abstract bool Update(T instance);
         public abstract bool Delete(int ID);
         //public abstract bool Delete(T instance);
+        public abstract List<T> Search(string searchText);
     }
 }

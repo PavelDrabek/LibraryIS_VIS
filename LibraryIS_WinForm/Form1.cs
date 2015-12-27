@@ -63,5 +63,11 @@ namespace LibraryIS_WinForm
             bool result = ls.Login(tbUsername.Text, tbPassword.Text);
             MessageBox.Show(result.ToString());
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            String[] str = service.Search(tbSearch.Text).Select(x => x.ToString()).ToArray();
+            MessageBox.Show(string.Join("\n", str));
+        }
     }
 }

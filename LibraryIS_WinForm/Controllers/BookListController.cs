@@ -26,29 +26,10 @@ namespace LibraryIS_WinForm.Controllers
             Refresh();
         }
 
-        public IList Books
-        {
-            get { return ArrayList.ReadOnly(books); }
-        }
-
-        /*
-        private void updateViewDetailValues(Book book)
-        {
-            view.ID = book.ID.ToString();
-            view.Title = book.Title;
-            view.Author = book.author.Name;
-            view.Genre = book.genre.Name;
-            view.ISBN = book.ISBN;
-            view.Publisher = book.publisher.Name;
-            view.Language = book.Language;
-            view.Pages = book.Pages.ToString();
-        }
-        */
         public void Refresh()
         {
             view.FilterText = "";
-            books = bookService.GetAllBooks();
-            Show(books);
+            Show(bookService.GetAll());
         }
 
         public void SelectedIdChanged(string selectedId)
@@ -66,17 +47,27 @@ namespace LibraryIS_WinForm.Controllers
 
         public void Show(List<Book> list)
         {
+            books = list;
             view.ClearGrid();
-            foreach (Book book in list) {
+            foreach (Book book in books) {
                 view.AddToGrid(book);
             }
 
-            view.SetSelectedInGrid((Book)list[0]);
+            //view.SetSelectedInGrid(books[0]);
         }
 
         public void Filter()
         {
-            Show(books.Where(x => x.Title.Contains(view.FilterText)).ToList());
+            if (view.FilterText == "") {
+                Show(bookService.GetAll());
+            } else {
+                Show(bookService.Search(view.FilterText));
+            }
+        }
+
+        public Book GetSelectedBook()
+        {
+            return selectedBook;
         }
     }
 }

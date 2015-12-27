@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D0EAE20-E684-4CC1-BA6F-1514892D4572}</ProjectGuid>
+    <ProjectGuid>{1F0502B0-E7BD-492A-88A4-95F66B3DEE8C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LIS.IDataMappers</RootNamespace>

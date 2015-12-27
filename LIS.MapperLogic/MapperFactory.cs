@@ -1,6 +1,6 @@
 ﻿using LIS.DataMappersMySQL;
 using LIS.Entities;
-using LIS.IDataMappers;
+using LIS.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,5 @@
 ﻿using LIS.Entities;
-using LIS.IDataMappers;
+using LIS.DAO;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;

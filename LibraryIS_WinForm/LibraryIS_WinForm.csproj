@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BookListController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Form1.cs">
@@ -70,6 +71,12 @@
     <Compile Include="Forms\BookRegistration.Designer.cs">
       <DependentUpon>BookRegistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormNewBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNewBook.Designer.cs">
+      <DependentUpon>FormNewBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +86,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IBookListView.cs" />
+    <Compile Include="Views\IBookView.cs" />
     <Compile Include="Views\ILoginView.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -91,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BookRegistration.resx">
       <DependentUpon>BookRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNewBook.resx">
+      <DependentUpon>FormNewBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
@@ -122,9 +133,9 @@
       <Project>{413ab2f1-c87c-453a-b13a-74d2d5efab57}</Project>
       <Name>LIS.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LIS.DataMappers\LIS.IDataMappers.csproj">
-      <Project>{7d0eae20-e684-4cc1-ba6f-1514892d4572}</Project>
-      <Name>LIS.IDataMappers</Name>
+    <ProjectReference Include="..\LIS.DataMappers\LIS.DAO.csproj">
+      <Project>{1f0502b0-e7bd-492a-88a4-95f66b3dee8c}</Project>
+      <Name>LIS.DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\LIS.Services\LIS.Services.csproj">
       <Project>{7cefa60a-538d-4bc1-b407-5d38ce92a22a}</Project>

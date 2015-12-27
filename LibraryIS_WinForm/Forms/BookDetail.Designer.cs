@@ -28,19 +28,19 @@
         private void InitializeComponent()
         {
             this.label7 = new System.Windows.Forms.Label();
-            this.txtPages = new System.Windows.Forms.TextBox();
+            this.tbPages = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtLanguage = new System.Windows.Forms.TextBox();
+            this.tbLanguage = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtPublisher = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtIsbn = new System.Windows.Forms.TextBox();
+            this.tbIsbn = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtGenre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtAuthor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.tbTitle = new System.Windows.Forms.TextBox();
+            this.cbGenre = new System.Windows.Forms.ComboBox();
+            this.cbAuthor = new System.Windows.Forms.ComboBox();
+            this.cbPublisher = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label7
@@ -52,14 +52,14 @@
             this.label7.TabIndex = 27;
             this.label7.Text = "Pocet stran";
             // 
-            // txtPages
+            // tbPages
             // 
-            this.txtPages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbPages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPages.Location = new System.Drawing.Point(1, 250);
-            this.txtPages.Name = "txtPages";
-            this.txtPages.Size = new System.Drawing.Size(197, 20);
-            this.txtPages.TabIndex = 26;
+            this.tbPages.Location = new System.Drawing.Point(1, 250);
+            this.tbPages.Name = "tbPages";
+            this.tbPages.Size = new System.Drawing.Size(197, 20);
+            this.tbPages.TabIndex = 26;
             // 
             // label6
             // 
@@ -70,14 +70,14 @@
             this.label6.TabIndex = 25;
             this.label6.Text = "Jazyk";
             // 
-            // txtLanguage
+            // tbLanguage
             // 
-            this.txtLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLanguage.Location = new System.Drawing.Point(1, 211);
-            this.txtLanguage.Name = "txtLanguage";
-            this.txtLanguage.Size = new System.Drawing.Size(197, 20);
-            this.txtLanguage.TabIndex = 24;
+            this.tbLanguage.Location = new System.Drawing.Point(1, 211);
+            this.tbLanguage.Name = "tbLanguage";
+            this.tbLanguage.Size = new System.Drawing.Size(197, 20);
+            this.tbLanguage.TabIndex = 24;
             // 
             // label5
             // 
@@ -88,15 +88,6 @@
             this.label5.TabIndex = 23;
             this.label5.Text = "Vydavatelstvi";
             // 
-            // txtPublisher
-            // 
-            this.txtPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPublisher.Location = new System.Drawing.Point(2, 172);
-            this.txtPublisher.Name = "txtPublisher";
-            this.txtPublisher.Size = new System.Drawing.Size(197, 20);
-            this.txtPublisher.TabIndex = 22;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -106,14 +97,14 @@
             this.label4.TabIndex = 21;
             this.label4.Text = "ISBN";
             // 
-            // txtIsbn
+            // tbIsbn
             // 
-            this.txtIsbn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbIsbn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIsbn.Location = new System.Drawing.Point(2, 133);
-            this.txtIsbn.Name = "txtIsbn";
-            this.txtIsbn.Size = new System.Drawing.Size(197, 20);
-            this.txtIsbn.TabIndex = 20;
+            this.tbIsbn.Location = new System.Drawing.Point(2, 133);
+            this.tbIsbn.Name = "tbIsbn";
+            this.tbIsbn.Size = new System.Drawing.Size(197, 20);
+            this.tbIsbn.TabIndex = 20;
             // 
             // label3
             // 
@@ -124,15 +115,6 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Zanr";
             // 
-            // txtGenre
-            // 
-            this.txtGenre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGenre.Location = new System.Drawing.Point(2, 94);
-            this.txtGenre.Name = "txtGenre";
-            this.txtGenre.Size = new System.Drawing.Size(197, 20);
-            this.txtGenre.TabIndex = 18;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -141,15 +123,6 @@
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 17;
             this.label2.Text = "Autor";
-            // 
-            // txtAuthor
-            // 
-            this.txtAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAuthor.Location = new System.Drawing.Point(2, 55);
-            this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(197, 20);
-            this.txtAuthor.TabIndex = 16;
             // 
             // label1
             // 
@@ -160,33 +133,58 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Titul";
             // 
-            // txtTitle
+            // tbTitle
             // 
-            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitle.Location = new System.Drawing.Point(2, 16);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(197, 20);
-            this.txtTitle.TabIndex = 14;
+            this.tbTitle.Location = new System.Drawing.Point(2, 16);
+            this.tbTitle.Name = "tbTitle";
+            this.tbTitle.Size = new System.Drawing.Size(197, 20);
+            this.tbTitle.TabIndex = 14;
+            // 
+            // cbGenre
+            // 
+            this.cbGenre.FormattingEnabled = true;
+            this.cbGenre.Location = new System.Drawing.Point(0, 94);
+            this.cbGenre.Name = "cbGenre";
+            this.cbGenre.Size = new System.Drawing.Size(199, 21);
+            this.cbGenre.TabIndex = 28;
+            // 
+            // cbAuthor
+            // 
+            this.cbAuthor.FormattingEnabled = true;
+            this.cbAuthor.Location = new System.Drawing.Point(0, 55);
+            this.cbAuthor.Name = "cbAuthor";
+            this.cbAuthor.Size = new System.Drawing.Size(199, 21);
+            this.cbAuthor.TabIndex = 29;
+            this.cbAuthor.SelectedIndexChanged += new System.EventHandler(this.cbAuthor_SelectedIndexChanged);
+            // 
+            // cbPublisher
+            // 
+            this.cbPublisher.FormattingEnabled = true;
+            this.cbPublisher.Location = new System.Drawing.Point(0, 172);
+            this.cbPublisher.Name = "cbPublisher";
+            this.cbPublisher.Size = new System.Drawing.Size(199, 21);
+            this.cbPublisher.TabIndex = 30;
             // 
             // BookDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbPublisher);
+            this.Controls.Add(this.cbAuthor);
+            this.Controls.Add(this.cbGenre);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtPages);
+            this.Controls.Add(this.tbPages);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtLanguage);
+            this.Controls.Add(this.tbLanguage);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtPublisher);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtIsbn);
+            this.Controls.Add(this.tbIsbn);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtGenre);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTitle);
+            this.Controls.Add(this.tbTitle);
             this.Name = "BookDetail";
             this.Size = new System.Drawing.Size(199, 273);
             this.ResumeLayout(false);
@@ -197,18 +195,18 @@
         #endregion
 
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtPages;
+        private System.Windows.Forms.TextBox tbPages;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtLanguage;
+        private System.Windows.Forms.TextBox tbLanguage;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtPublisher;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtIsbn;
+        private System.Windows.Forms.TextBox tbIsbn;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtGenre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.TextBox tbTitle;
+        private System.Windows.Forms.ComboBox cbGenre;
+        private System.Windows.Forms.ComboBox cbAuthor;
+        private System.Windows.Forms.ComboBox cbPublisher;
     }
 }

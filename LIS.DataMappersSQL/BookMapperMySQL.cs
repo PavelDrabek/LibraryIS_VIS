@@ -43,5 +43,11 @@ namespace LIS.DataMappersMySQL
             };
         }
 
+        protected override MySqlCommand GetSearchCommand(string searchText)
+        {
+            string LIKE = "LIKE '%" + searchText + "%'";
+            string QUERY = QUERY_SELECT + " WHERE title " + LIKE + " OR isbn " + LIKE;
+            return new MySqlCommand(QUERY, connection);
+        }
     }
 }

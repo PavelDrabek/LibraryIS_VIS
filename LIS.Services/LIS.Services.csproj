@@ -42,17 +42,19 @@
     <Compile Include="AuthorService.cs" />
     <Compile Include="BookService.cs" />
     <Compile Include="EntityService.cs" />
+    <Compile Include="GenreService.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublisherService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DA\LIS.Entities.csproj">
       <Project>{413ab2f1-c87c-453a-b13a-74d2d5efab57}</Project>
       <Name>LIS.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LIS.DataMappers\LIS.IDataMappers.csproj">
-      <Project>{7d0eae20-e684-4cc1-ba6f-1514892d4572}</Project>
-      <Name>LIS.IDataMappers</Name>
+    <ProjectReference Include="..\LIS.DataMappers\LIS.DAO.csproj">
+      <Project>{1f0502b0-e7bd-492a-88a4-95f66b3dee8c}</Project>
+      <Name>LIS.DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\LIS.MapperLogic\LIS.MapperLogic.csproj">
       <Project>{941c5d1e-6c69-456f-8b91-a07daa2d0a94}</Project>

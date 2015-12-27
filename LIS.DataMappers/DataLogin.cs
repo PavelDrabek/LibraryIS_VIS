@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LIS.IDataMappers {
+namespace LIS.DAO {
     public abstract class DataLogin {
 
         public User loggedUser { get; set; }

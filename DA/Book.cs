@@ -17,9 +17,38 @@ namespace LIS.Entities
         public string Language { get; set; }
         public int Pages { get; set; }
 
-        public Publisher publisher { get; set; }
-        public Author author { get; set; }
-        public Genre genre { get; set; }
+        private Publisher _publisher;
+        private Author _author;
+        private Genre _genre;
+
+        public Publisher publisher { 
+            get { return _publisher; } 
+            set { 
+                _publisher = value;
+                if (_publisher != null)
+                    PublisherID = _publisher.ID; 
+            } 
+        }
+        public Author author
+        {
+            get { return _author; }
+            set
+            {
+                _author = value;
+                if (_author != null)
+                    AuthorID = _author.ID;
+            }
+        }
+        public Genre genre
+        {
+            get { return _genre; }
+            set
+            {
+                _genre = value;
+                if (_genre != null)
+                    GenreID = _genre.ID;
+            }
+        }
 
         public override string ToString() {
             return "{ ID: " + ID +

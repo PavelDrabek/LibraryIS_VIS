@@ -1,5 +1,5 @@
 ﻿using LIS.Entities;
-using LIS.IDataMappers;
+using LIS.DAO;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -17,6 +17,7 @@ namespace LIS.DataMappersMySQL
         public abstract string PrimaryKey { get; }
         public abstract string[] OtherKeys { get; }
 
+        protected abstract MySqlCommand GetSearchCommand(string searchText);
         public abstract int GetPrimaryKeyValue(T instance);
         public abstract string[] GetOtherValues(T instance);
 
@@ -50,13 +51,19 @@ namespace LIS.DataMappersMySQL
 
         public override List<T> Select()
         {
+            MySqlCommand command = new MySqlCommand(QUERY_SELECT, connection);
+            return SelectWithCommand(command);
+        }
+
+        public List<T> SelectWithCommand(MySqlCommand command)
+        {
             List<T> returnValue = new List<T>();
-           
+
             if (connection.State != ConnectionState.Open)
                 connection.Open();
-           
-            using (MySqlCommand command = new MySqlCommand(QUERY_SELECT, connection)) {
-                using (MySqlDataReader reader = command.ExecuteReader()) {
+
+            using (MySqlCommand cmd = command) {
+                using (MySqlDataReader reader = cmd.ExecuteReader()) {
                     while (reader.Read()) {
                         returnValue.Add(ParseReader(reader));
                     }
@@ -81,18 +88,14 @@ namespace LIS.DataMappersMySQL
         }
 
         public override T Get(int ID) {
-            if (connection.State != ConnectionState.Open)
-                connection.Open();
+            MySqlCommand command = new MySqlCommand(QUERY_SELECT_ONE, connection);
+            command.Parameters.AddWithValue("@" + PrimaryKey, ID);
+            List<T> list = SelectWithCommand(command);
 
-            using (MySqlCommand command = new MySqlCommand(QUERY_SELECT_ONE, connection)) {
-                command.Parameters.AddWithValue("@" + PrimaryKey, ID);
-                using (MySqlDataReader reader = command.ExecuteReader()) {
-                    if (reader.Read()) {
-                        return ParseReader(reader);
-                    } else {
-                        return default(T);
-                    }
-                }
+            if (list.Count >= 1) {
+                return list[0];
+            } else {
+                return default(T);
             }
         }
 
@@ -119,6 +122,11 @@ namespace LIS.DataMappersMySQL
                 command.Parameters.AddWithValue("@" + PrimaryKey, ID);
                 return command.ExecuteNonQuery() > 0;
             }
+        }
+
+        public override List<T> Search(string searchText)
+        {
+            return SelectWithCommand(GetSearchCommand(searchText));
         }
     }
 }

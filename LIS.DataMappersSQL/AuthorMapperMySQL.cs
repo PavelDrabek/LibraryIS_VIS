@@ -1,10 +1,6 @@
 ﻿using LIS.Entities;
 using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LIS.DataMappersMySQL
 {
@@ -33,6 +29,13 @@ namespace LIS.DataMappersMySQL
                 new MySqlParameter("@middlename", p.MiddleName), 
                 new MySqlParameter("@lastname", p.LastName)
             };
+        }
+
+        protected override MySqlCommand GetSearchCommand(string searchText)
+        {
+            string LIKE = "LIKE '%" + searchText + "%'";
+            string QUERY = QUERY_SELECT + " WHERE firstname " + LIKE + " OR middlename " + LIKE + " OR lastname " + LIKE;
+            return new MySqlCommand(QUERY, connection);
         }
     }
 }

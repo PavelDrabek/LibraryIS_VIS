@@ -28,7 +28,6 @@
         private void InitializeComponent()
         {
             this.tbFilter = new System.Windows.Forms.TextBox();
-            this.cbFilter = new System.Windows.Forms.ComboBox();
             this.lvBooks = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -47,24 +46,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbFilter.Location = new System.Drawing.Point(0, 2);
             this.tbFilter.Name = "tbFilter";
-            this.tbFilter.Size = new System.Drawing.Size(440, 20);
+            this.tbFilter.Size = new System.Drawing.Size(533, 20);
             this.tbFilter.TabIndex = 12;
-            // 
-            // cbFilter
-            // 
-            this.cbFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbFilter.FormattingEnabled = true;
-            this.cbFilter.Items.AddRange(new object[] {
-            "Titul",
-            "Autor",
-            "Zanr",
-            "ISBN",
-            "Vydavatelstvi",
-            "Jazyk"});
-            this.cbFilter.Location = new System.Drawing.Point(446, 2);
-            this.cbFilter.Name = "cbFilter";
-            this.cbFilter.Size = new System.Drawing.Size(87, 21);
-            this.cbFilter.TabIndex = 14;
             // 
             // lvBooks
             // 
@@ -148,7 +131,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tbFilter);
-            this.Controls.Add(this.cbFilter);
             this.Controls.Add(this.lvBooks);
             this.Controls.Add(this.btnFilter);
             this.Name = "BookList";
@@ -161,7 +143,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbFilter;
-        private System.Windows.Forms.ComboBox cbFilter;
         private System.Windows.Forms.ListView lvBooks;
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader Title;
