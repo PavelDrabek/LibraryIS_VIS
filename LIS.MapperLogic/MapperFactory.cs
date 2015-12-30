@@ -119,5 +119,19 @@ namespace LIS.MapperLogic
                     throw new WrongDataSourceException("Not known DataSource " + dataSource);
             }
         }
+
+        public static DataMapper<Borrow> CreateBorrowMapper()
+        {
+            if (!isInitialized) {
+                Init();
+            }
+
+            switch (dataSource) {
+                case "MySQL": return new BorrowMapperMySQL();
+                case "XML": throw new NotImplementedException();
+                default:
+                    throw new WrongDataSourceException("Not known DataSource " + dataSource);
+            }
+        }
     }
 }

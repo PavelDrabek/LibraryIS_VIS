@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AuthorMapperMySQL.cs" />
     <Compile Include="BookMapperMySQL.cs" />
+    <Compile Include="BorrowMapperMySQL.cs" />
     <Compile Include="DataLoginMySQL.cs" />
     <Compile Include="DataMapperMySQL.cs" />
     <Compile Include="ConnectionFactory.cs" />

@@ -124,6 +124,8 @@
             // 
             // cbGenre
             // 
+            this.cbGenre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbGenre.FormattingEnabled = true;
             this.cbGenre.Location = new System.Drawing.Point(0, 94);
             this.cbGenre.Name = "cbGenre";
@@ -133,6 +135,8 @@
             // 
             // cbAuthor
             // 
+            this.cbAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbAuthor.FormattingEnabled = true;
             this.cbAuthor.Location = new System.Drawing.Point(0, 55);
             this.cbAuthor.Name = "cbAuthor";
@@ -142,6 +146,8 @@
             // 
             // cbPublisher
             // 
+            this.cbPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbPublisher.FormattingEnabled = true;
             this.cbPublisher.Location = new System.Drawing.Point(0, 172);
             this.cbPublisher.Name = "cbPublisher";

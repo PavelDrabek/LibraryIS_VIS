@@ -2,6 +2,7 @@
 using LibraryIS_WinForm.Forms;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,9 +25,14 @@ namespace LibraryIS_WinForm
 
             loginWindow.ShowDialog();
 
-            //Application.Run(new Form1());
+            Application.Run(new Form1());
             //Application.Run(new FormNewBook());
-            
+
+        }
+
+        public static bool IsInDesignMode()
+        {
+            return (LicenseManager.UsageMode == LicenseUsageMode.Designtime);
         }
     }
 }

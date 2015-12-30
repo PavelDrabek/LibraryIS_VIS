@@ -50,7 +50,7 @@ namespace LibraryIS_WinForm.Controllers
             }
         }
 
-        public User GetSelectedBook()
+        public User GetSelectedUser()
         {
             int selectedIndex = view.GetSelectedIndex();
             if (selectedIndex >= 0 && selectedIndex < users.Count) {

@@ -54,11 +54,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEditUser.Designer.cs">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewAuthor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\NewAuthor.Designer.cs">
       <DependentUpon>NewAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewBorrow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewBorrow.Designer.cs">
+      <DependentUpon>NewBorrow.cs</DependentUpon>
     </Compile>
     <Compile Include="IViews\IUserListView.cs" />
     <Compile Include="Views\BookDetail.cs">
@@ -102,6 +114,18 @@
     <Compile Include="IViews\IBookListView.cs" />
     <Compile Include="IViews\IBookView.cs" />
     <Compile Include="IViews\ILoginView.cs" />
+    <Compile Include="Views\BorrowList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\BorrowList.Designer.cs">
+      <DependentUpon>BorrowList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserDetail.Designer.cs">
+      <DependentUpon>UserDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,8 +135,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEditUser.resx">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewAuthor.resx">
       <DependentUpon>NewAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewBorrow.resx">
+      <DependentUpon>NewBorrow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\BookDetail.resx">
       <DependentUpon>BookDetail.cs</DependentUpon>
@@ -141,6 +171,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\BorrowList.resx">
+      <DependentUpon>BorrowList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserDetail.resx">
+      <DependentUpon>UserDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserList.resx">
       <DependentUpon>UserList.cs</DependentUpon>
     </EmbeddedResource>

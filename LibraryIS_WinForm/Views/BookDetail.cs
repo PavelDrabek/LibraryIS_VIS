@@ -32,13 +32,15 @@ namespace LibraryIS_WinForm.Forms
             genreService = new GenreService();
             publisherService = new PublisherService();
 
-            authors = authorService.GetAll();
-            genres = genreService.GetAll();
-            publishers = publisherService.GetAll();
+            if (!Program.IsInDesignMode()) {
+                authors = authorService.GetAll();
+                genres = genreService.GetAll();
+                publishers = publisherService.GetAll();
 
-            cbAuthor.Items.AddRange(authors.ToArray());
-            cbGenre.Items.AddRange(genres.ToArray());
-            cbPublisher.Items.AddRange(publishers.ToArray());
+                cbAuthor.Items.AddRange(authors.ToArray());
+                cbGenre.Items.AddRange(genres.ToArray());
+                cbPublisher.Items.AddRange(publishers.ToArray());
+            }
         }
 
         public void SetController(BookController controller)

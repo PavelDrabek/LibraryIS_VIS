@@ -14,13 +14,13 @@ namespace LibraryIS_WinForm
 {
     public partial class Form1 : Form
     {
-        EntityService<Author> service = null;
+        EntityService<Borrow> service = null;
 
         public Form1()
         {
             InitializeComponent();
 
-            service = new AuthorService();
+            service = new BorrowService();
         }
 
         private void btnSelectAll_Click(object sender, EventArgs e) {
@@ -33,14 +33,14 @@ namespace LibraryIS_WinForm
         }
 
         private void btnUpdatePages_Click(object sender, EventArgs e) {
-            Author entity = service.Get(GetIDFromTextBox());
-            entity.FirstName = GetPagesFromTextBox();
+            Borrow entity = service.Get(GetIDFromTextBox());
+            entity.BookID = int.Parse(GetPagesFromTextBox());
             MessageBox.Show(service.Update(entity).ToString());
         }
 
         private void btnInsertPages_Click(object sender, EventArgs e) {
-            Author entity = service.Get(GetIDFromTextBox());
-            entity.FirstName = GetPagesFromTextBox();
+            Borrow entity = service.Get(GetIDFromTextBox());
+            entity.BookID = int.Parse(GetPagesFromTextBox());
             MessageBox.Show(service.Insert(entity).ToString());
         }
 
@@ -58,7 +58,6 @@ namespace LibraryIS_WinForm
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
             LoginService ls = new LoginService();
             bool result = ls.Login(tbUsername.Text, tbPassword.Text);
             MessageBox.Show(result.ToString());

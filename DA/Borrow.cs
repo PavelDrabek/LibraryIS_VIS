@@ -17,6 +17,8 @@ namespace LIS.Entities
         public User user { get; set; }
         public Book book { get; set; }
 
+        public bool IsReturned { get { return !Returned.Equals(DateTime.MinValue); } }
+
         public override string ToString()
         {
             return "{ ID: " + ID +
