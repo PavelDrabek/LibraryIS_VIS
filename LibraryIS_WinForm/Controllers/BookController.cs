@@ -28,7 +28,7 @@ namespace LibraryIS_WinForm.Controllers
             view.genre = book.genre;
             view.ISBN = book.ISBN;
             view.publisher = book.publisher;
-            view.Pages = book.Pages;
+            view.NumOfPages = book.Pages;
         }
 
         public Book GetBook()
@@ -37,7 +37,7 @@ namespace LibraryIS_WinForm.Controllers
             book.ID = view.ID;
             book.Title = view.Title;
             book.ISBN = view.ISBN;
-            book.Pages = view.Pages;
+            book.Pages = view.NumOfPages;
 
             book.author = view.author;
             book.genre = view.genre;

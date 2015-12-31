@@ -84,9 +84,9 @@ namespace LibraryIS_WinForm.Forms
             set { id = value; }
         }
 
-        public int Pages
+        public int NumOfPages
         {
-            get { return int.Parse(tbPages.Text); }
+            get { int num = 0; int.TryParse(tbPages.Text, out num); return num; }
             set { tbPages.Text = value.ToString(); }
         }
 

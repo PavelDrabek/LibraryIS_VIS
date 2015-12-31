@@ -18,6 +18,6 @@ namespace LibraryIS_WinForm.Views
         Genre genre { get; set; }
         string ISBN { get; set; }
         Publisher publisher { get; set; }
-        int Pages { get; set; }
+        int NumOfPages { get; set; }
     }
 }

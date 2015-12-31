@@ -66,6 +66,12 @@
     <Compile Include="Forms\FormEditUser.Designer.cs">
       <DependentUpon>FormEditUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormNewBorrow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNewBorrow.Designer.cs">
+      <DependentUpon>FormNewBorrow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewAuthor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEditUser.resx">
       <DependentUpon>FormEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNewBorrow.resx">
+      <DependentUpon>FormNewBorrow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewAuthor.resx">
       <DependentUpon>NewAuthor.cs</DependentUpon>
