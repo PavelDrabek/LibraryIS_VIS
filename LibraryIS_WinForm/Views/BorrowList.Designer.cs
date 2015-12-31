@@ -29,9 +29,10 @@
         {
             this.lvBorrows = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Username = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Firstname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Lastname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Returned = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Book = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.User = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvBorrows
@@ -42,9 +43,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvBorrows.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
-            this.Username,
-            this.Firstname,
-            this.Lastname});
+            this.Date,
+            this.Returned,
+            this.Book,
+            this.User});
             this.lvBorrows.FullRowSelect = true;
             this.lvBorrows.Location = new System.Drawing.Point(0, 0);
             this.lvBorrows.MultiSelect = false;
@@ -59,20 +61,24 @@
             this.ID.Text = "ID";
             this.ID.Width = 32;
             // 
-            // Username
+            // Date
             // 
-            this.Username.Text = "Uziv. jmeno";
-            this.Username.Width = 127;
+            this.Date.Text = "Datum vypujceni";
+            this.Date.Width = 127;
             // 
-            // Firstname
+            // Returned
             // 
-            this.Firstname.Text = "Jmeno";
-            this.Firstname.Width = 126;
+            this.Returned.Text = "Vraceno";
+            this.Returned.Width = 126;
             // 
-            // Lastname
+            // Book
             // 
-            this.Lastname.Text = "Prijmeni";
-            this.Lastname.Width = 77;
+            this.Book.Text = "Kniha";
+            this.Book.Width = 77;
+            // 
+            // User
+            // 
+            this.User.Text = "Uzivatel";
             // 
             // BorrowList
             // 
@@ -89,8 +95,9 @@
 
         private System.Windows.Forms.ListView lvBorrows;
         private System.Windows.Forms.ColumnHeader ID;
-        private System.Windows.Forms.ColumnHeader Username;
-        private System.Windows.Forms.ColumnHeader Firstname;
-        private System.Windows.Forms.ColumnHeader Lastname;
+        private System.Windows.Forms.ColumnHeader Date;
+        private System.Windows.Forms.ColumnHeader Returned;
+        private System.Windows.Forms.ColumnHeader Book;
+        private System.Windows.Forms.ColumnHeader User;
     }
 }

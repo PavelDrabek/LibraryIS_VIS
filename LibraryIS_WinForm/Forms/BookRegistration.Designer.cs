@@ -40,8 +40,8 @@
             this.btnUserDelete = new System.Windows.Forms.Button();
             this.userList1 = new LibraryIS_WinForm.Views.UserList();
             this.tabBorrows = new System.Windows.Forms.TabPage();
-            this.borrowList1 = new LibraryIS_WinForm.Views.BorrowList();
             this.btnBorrowReturn = new System.Windows.Forms.Button();
+            this.borrowList1 = new LibraryIS_WinForm.Views.BorrowList();
             this.tabControl1.SuspendLayout();
             this.tabBooks.SuspendLayout();
             this.tabUsers.SuspendLayout();
@@ -154,6 +154,7 @@
             this.btnUserBorrow.TabIndex = 25;
             this.btnUserBorrow.Text = "Zapujcit";
             this.btnUserBorrow.UseVisualStyleBackColor = true;
+            this.btnUserBorrow.Click += new System.EventHandler(this.btnUserBorrow_Click);
             // 
             // btnUserEdit
             // 
@@ -200,16 +201,6 @@
             this.tabBorrows.Text = "Vypujcene knihy";
             this.tabBorrows.UseVisualStyleBackColor = true;
             // 
-            // borrowList1
-            // 
-            this.borrowList1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.borrowList1.Location = new System.Drawing.Point(6, 35);
-            this.borrowList1.Name = "borrowList1";
-            this.borrowList1.Size = new System.Drawing.Size(641, 302);
-            this.borrowList1.TabIndex = 0;
-            // 
             // btnBorrowReturn
             // 
             this.btnBorrowReturn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -220,6 +211,16 @@
             this.btnBorrowReturn.Text = "Ne/Vraceno";
             this.btnBorrowReturn.UseVisualStyleBackColor = true;
             this.btnBorrowReturn.Click += new System.EventHandler(this.btnBorrowReturn_Click);
+            // 
+            // borrowList1
+            // 
+            this.borrowList1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.borrowList1.Location = new System.Drawing.Point(6, 35);
+            this.borrowList1.Name = "borrowList1";
+            this.borrowList1.Size = new System.Drawing.Size(641, 302);
+            this.borrowList1.TabIndex = 0;
             // 
             // BookRegistration
             // 

@@ -20,7 +20,9 @@ namespace LibraryIS_WinForm.Views
             InitializeComponent();
 
             borrowService = new BorrowService();
-            Refresh();
+            if (!Program.IsInDesignMode()) {
+                Refresh();
+            }
         }
 
         private bool IsSomethingSelected()

@@ -33,11 +33,35 @@ namespace LibraryIS_WinForm.Forms
             if (e.TabPage.Equals(tabUsers)) {
                 userListController.Refresh();
             }
+            if (e.TabPage.Equals(tabBorrows)) {
+                borrowList1.Refresh();
+            }
         }
 
         private void btnBookBorrow_Click(object sender, EventArgs e)
         {
-
+            Book book = bookListController.GetSelectedBook();
+            if (book != null) {
+                FormNewBorrow form = new FormNewBorrow();
+                form.SetBook(book);
+                form.ShowDialog();
+                borrowList1.Refresh();
+            } else {
+                MessageBox.Show("Please select book");
+            }
+        }
+        
+        private void btnUserBorrow_Click(object sender, EventArgs e)
+        {
+            User user = userListController.GetSelectedUser();
+            if (user != null) {
+                FormNewBorrow form = new FormNewBorrow();
+                form.SetUser(user);
+                form.ShowDialog();
+                borrowList1.Refresh();
+            } else {
+                MessageBox.Show("Please select book");
+            }
         }
 
         private void btnBookNew_Click(object sender, EventArgs e)
@@ -96,6 +120,7 @@ namespace LibraryIS_WinForm.Forms
                 borrow.Returned = DateTime.Now;
             }
             new BorrowService().Update(borrow);
+            borrowList1.Refresh();
         }
     }
 }

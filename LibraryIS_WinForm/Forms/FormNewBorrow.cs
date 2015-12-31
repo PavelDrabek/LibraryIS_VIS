@@ -26,14 +26,25 @@ namespace LibraryIS_WinForm.Forms
             bookController = new BookController(bookDetail1);
         }
 
+        public void SetBook(Book book)
+        {
+            selectedBook = book;
+            bookController.SetBook(selectedBook);
+        }
+
+        public void SetUser(User user)
+        {
+            selectedUser = user;
+            userDetail1.SetUser(selectedUser);
+        }
+
         private void btnChooseBook_Click(object sender, EventArgs e)
         {
             FormChooseBook form = new FormChooseBook();
             form.ShowDialog();
 
             if (form.ResultOK) {
-                selectedBook = form.SelectedBook;
-                bookController.SetBook(selectedBook);
+                SetBook(form.SelectedBook);
             }
         }
 
@@ -43,8 +54,7 @@ namespace LibraryIS_WinForm.Forms
             form.ShowDialog();
 
             if (form.ResultOK) {
-                selectedUser = form.SelectedUser;
-                userDetail1.SetUser(selectedUser);
+                SetUser(form.SelectedUser);
             }
         }
 
