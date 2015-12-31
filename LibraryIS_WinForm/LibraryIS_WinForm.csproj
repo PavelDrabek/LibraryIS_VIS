@@ -60,6 +60,12 @@
     <Compile Include="Forms\FormChooseBook.Designer.cs">
       <DependentUpon>FormChooseBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormChooseUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormChooseUser.Designer.cs">
+      <DependentUpon>FormChooseUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,12 +83,6 @@
     </Compile>
     <Compile Include="Forms\NewAuthor.Designer.cs">
       <DependentUpon>NewAuthor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\NewBorrow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\NewBorrow.Designer.cs">
-      <DependentUpon>NewBorrow.cs</DependentUpon>
     </Compile>
     <Compile Include="IViews\IUserListView.cs" />
     <Compile Include="Views\BookDetail.cs">
@@ -150,6 +150,9 @@
     <EmbeddedResource Include="Forms\FormChooseBook.resx">
       <DependentUpon>FormChooseBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormChooseUser.resx">
+      <DependentUpon>FormChooseUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEditUser.resx">
       <DependentUpon>FormEditUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,9 +161,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewAuthor.resx">
       <DependentUpon>NewAuthor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NewBorrow.resx">
-      <DependentUpon>NewBorrow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\BookDetail.resx">
       <DependentUpon>BookDetail.cs</DependentUpon>
