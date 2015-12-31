@@ -39,7 +39,6 @@ namespace LibraryIS_WinForm.Forms
 
         private void btnChooseUser_Click(object sender, EventArgs e)
         {
-            /*
             FormChooseUser form = new FormChooseUser();
             form.ShowDialog();
 
@@ -47,7 +46,6 @@ namespace LibraryIS_WinForm.Forms
                 selectedUser = form.SelectedUser;
                 userDetail1.SetUser(selectedUser);
             }
-            */
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
