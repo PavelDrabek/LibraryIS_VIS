@@ -1,4 +1,5 @@
-﻿using LIS.Entities;
+﻿using LIS.DAO;
+using LIS.Entities;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace LIS.DataMappersMySQL
         public override string TableName { get { return "Borrow"; } }
         public override string PrimaryKey { get { return "borrow_id"; } }
         public override string[] OtherKeys { get { return new string[] { "date", "returned", "book_id", "user_id" }; } }
-        public override string[] GetOtherValues(Borrow b) { return new string[] { b.Date.ToString(DataMapperMySQL<Borrow>.DATE_FORMAT), b.Returned.ToString(DataMapperMySQL<Borrow>.DATE_FORMAT), b.BookID.ToString(), b.UserID.ToString() }; }
+        public override string[] GetOtherValues(Borrow b) { return new string[] { b.Date.ToString(DataMapper<Borrow>.DATE_FORMAT), b.Returned.ToString(DataMapper<Borrow>.DATE_FORMAT), b.BookID.ToString(), b.UserID.ToString() }; }
         public override int GetPrimaryKeyValue(Borrow b) { return b.ID; }
 
         private BookMapperMySQL bookMapper;
@@ -51,7 +52,7 @@ namespace LIS.DataMappersMySQL
         protected override MySqlParameter[] GetInsertParameters(Borrow b)
         {
             return new MySqlParameter[] {
-                new MySqlParameter("@date", b.Date.ToString(DataMapperMySQL<Borrow>.DATE_FORMAT)), 
+                new MySqlParameter("@date", b.Date.ToString(DataMapper<Borrow>.DATE_FORMAT)), 
                 new MySqlParameter("@returned", !b.IsReturned ? null : b.Returned.ToString(DataMapperMySQL<Borrow>.DATE_FORMAT)), 
                 new MySqlParameter("@book_id", b.BookID), 
                 new MySqlParameter("@user_id", b.UserID) 

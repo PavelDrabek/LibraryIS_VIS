@@ -9,6 +9,8 @@ namespace LIS.DAO
 {
     public abstract class DataMapper<T> where T : Entity
     {
+        public static readonly string DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
         public abstract List<T> Select();
         public abstract T Get(int ID);
         //public abstract T Get(T instance);

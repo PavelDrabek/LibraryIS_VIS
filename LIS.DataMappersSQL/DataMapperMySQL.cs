@@ -12,8 +12,6 @@ namespace LIS.DataMappersMySQL
 {
     public abstract class DataMapperMySQL<T> : DataMapper<T> where T : Entity
     {
-        public static readonly string DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
-
         protected MySqlConnection connection;
         public abstract string TableName { get; }
         public abstract string PrimaryKey { get; }
