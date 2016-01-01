@@ -21,7 +21,7 @@ namespace LIS.DataMappersCSV
         private void Init(string filePath)
         {
             idCounter = 0;
-            path = filePath;
+            path = filePath + "\\" + TableName + ".csv";
             list = new List<T>();
 
             Load();
