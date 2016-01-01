@@ -30,7 +30,7 @@ namespace LIS.DataMappersCSV
         protected abstract string TableName { get; }
         protected abstract T ParseEntry(string[] parameters);
         protected abstract int GetID(T instance);
-        protected abstract string BookToCsvLine(T instance);
+        protected abstract string ToCsvLine(T instance);
 
         protected void Load()
         {
@@ -51,7 +51,7 @@ namespace LIS.DataMappersCSV
         {
             using (StreamWriter writer = new StreamWriter(path)) {
                 for (int i = 0; i < list.Count; i++) {
-                    string line = BookToCsvLine(list[i]);
+                    string line = ToCsvLine(list[i]);
                     writer.WriteLine(line);
                 }
             }

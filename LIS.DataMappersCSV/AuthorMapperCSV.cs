@@ -23,19 +23,6 @@ namespace LIS.DataMappersCSV
             instance.LastName = parameters[3];
 
             return instance;
-
-            /*
-            Book newBook = new Book();
-            newBook.ID = int.Parse(items[0]);
-            newBook.Title = items[1];
-            newBook.Author = items[2];
-            newBook.Genre = items[3];
-            newBook.ISBN = items[4];
-            newBook.Publisher = items[5];
-            newBook.Language = items[6];
-            newBook.Pages = int.Parse(items[7]);
-            books.Add(newBook);
-            */
         }
 
         protected override int GetID(Author instance)
@@ -43,7 +30,7 @@ namespace LIS.DataMappersCSV
             return instance.ID;
         }
 
-        protected override string BookToCsvLine(Author instance)
+        protected override string ToCsvLine(Author instance)
         {
             string[] array = new string[] { instance.ID.ToString(), instance.FirstName, instance.MiddleName, instance.LastName };
             return string.Join(";", array);

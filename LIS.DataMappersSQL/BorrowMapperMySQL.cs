@@ -25,7 +25,7 @@ namespace LIS.DataMappersMySQL
             bookMapper = new BookMapperMySQL();
             userMapper = new UserMapperMySQL();
         }
-
+        
         protected override Borrow ParseReader(MySqlDataReader reader)
         {
             return new Borrow() {

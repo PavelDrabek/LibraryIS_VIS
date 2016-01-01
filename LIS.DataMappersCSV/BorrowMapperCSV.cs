@@ -32,7 +32,7 @@ namespace LIS.DataMappersCSV
             return instance.ID;
         }
 
-        protected override string BookToCsvLine(Borrow instance)
+        protected override string ToCsvLine(Borrow instance)
         {
             string[] array = new string[] { 
                 instance.ID.ToString(), 

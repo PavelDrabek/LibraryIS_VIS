@@ -33,7 +33,7 @@ namespace LIS.DataMappersCSV
             return instance.ID;
         }
 
-        protected override string BookToCsvLine(Book instance)
+        protected override string ToCsvLine(Book instance)
         {
             string[] array = new string[] { instance.ID.ToString(), instance.Title, instance.ISBN, instance.Pages.ToString(), instance.GenreID.ToString(), instance.AuthorID.ToString(), instance.PublisherID.ToString() };
             return string.Join(";", array);
