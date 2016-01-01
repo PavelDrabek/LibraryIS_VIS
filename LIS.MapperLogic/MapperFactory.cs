@@ -1,4 +1,5 @@
 ﻿using LIS.DataMappersMySQL;
+using LIS.DataMappersCSV;
 using LIS.Entities;
 using LIS.DAO;
 using System;
@@ -11,12 +12,15 @@ namespace LIS.MapperLogic
 {
     public static class MapperFactory
     {
-        private static string dataSource = null;
         private static bool isInitialized = false;
+        
+        private static string dataSource = null;
+        private static string csvPath = null;        
 
         public static void Init()
         {
-            dataSource = "MySQL";
+            dataSource = "CSV";
+            csvPath = "..\\..\\..\\db_CSV\\";
             isInitialized = true;
         }
 
@@ -28,7 +32,7 @@ namespace LIS.MapperLogic
 
             switch (dataSource) {
                 case "MySQL": return new DataLoginMySQL();
-                case "XML": throw new NotImplementedException();
+                case "CSV": return new DataLoginCSV(csvPath);
                 default:
                     throw new WrongDataSourceException("Not known DataSource " + dataSource);
             }
@@ -58,7 +62,7 @@ namespace LIS.MapperLogic
 
             switch (dataSource) {
                 case "MySQL": return new BookMapperMySQL();
-                case "XML": throw new NotImplementedException();
+                case "CSV": return new BookMapperCSV(csvPath);
                 default:
                     throw new WrongDataSourceException("Not known DataSource " + dataSource);
             }
@@ -72,7 +76,7 @@ namespace LIS.MapperLogic
 
             switch (dataSource) {
                 case "MySQL": return new AuthorMapperMySQL();
-                case "XML": throw new NotImplementedException();
+                case "CSV": return new AuthorMapperCSV(csvPath);
                 default:
                     throw new WrongDataSourceException("Not known DataSource " + dataSource);
             }
@@ -86,7 +90,7 @@ namespace LIS.MapperLogic
 
             switch (dataSource) {
                 case "MySQL": return new GenreMapperMySQL();
-                case "XML": throw new NotImplementedException();
+                case "CSV": return new GenreMapperCSV(csvPath);
                 default:
                     throw new WrongDataSourceException("Not known DataSource " + dataSource);
             }
@@ -100,7 +104,7 @@ namespace LIS.MapperLogic
 
             switch (dataSource) {
                 case "MySQL": return new PublisherMapperMySQL();
-                case "XML": throw new NotImplementedException();
+                case "CSV": return new PublisherMapperCSV(csvPath);
                 default:
                     throw new WrongDataSourceException("Not known DataSource " + dataSource);
             }
@@ -114,7 +118,7 @@ namespace LIS.MapperLogic
 
             switch (dataSource) {
                 case "MySQL": return new UserMapperMySQL();
-                case "XML": throw new NotImplementedException();
+                case "CSV": return new UserMapperCSV(csvPath);
                 default:
                     throw new WrongDataSourceException("Not known DataSource " + dataSource);
             }
@@ -128,7 +132,7 @@ namespace LIS.MapperLogic
 
             switch (dataSource) {
                 case "MySQL": return new BorrowMapperMySQL();
-                case "XML": throw new NotImplementedException();
+                case "CSV": return new BorrowMapperCSV(csvPath);
                 default:
                     throw new WrongDataSourceException("Not known DataSource " + dataSource);
             }

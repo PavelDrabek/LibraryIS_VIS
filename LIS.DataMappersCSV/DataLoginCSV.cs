@@ -13,9 +13,9 @@ namespace LIS.DataMappersCSV
     {
         protected string path;
 
-        protected void Init(string filePath)
+        public DataLoginCSV(string filePath)
         {
-            path = filePath;
+            path = filePath + "user.csv";
         }
 
         protected override User GetUser(string userName, string password)

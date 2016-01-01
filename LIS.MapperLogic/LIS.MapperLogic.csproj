@@ -48,6 +48,10 @@
       <Project>{413ab2f1-c87c-453a-b13a-74d2d5efab57}</Project>
       <Name>LIS.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LIS.DataMappersCSV\LIS.DataMappersCSV.csproj">
+      <Project>{6fe59389-41c9-4416-866b-c788fe566ea9}</Project>
+      <Name>LIS.DataMappersCSV</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LIS.DataMappersSQL\LIS.DataMappersMySQL.csproj">
       <Project>{a9e43ec1-3699-4dbc-9a67-372192d4660f}</Project>
       <Name>LIS.DataMappersMySQL</Name>

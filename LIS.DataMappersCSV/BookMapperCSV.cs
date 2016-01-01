@@ -9,9 +9,34 @@ namespace LIS.DataMappersCSV
 {
     public class BookMapperCSV : DataMapperCSV<Book>
     {
+        private GenreMapperCSV genreMapper;
+        private AuthorMapperCSV authorMapper;
+        private PublisherMapperCSV publisherMapper;
+
+        public BookMapperCSV(string path) : base(path) { }
+
+        protected override void PreLoad(string filePath)
+        {
+            base.PreLoad(filePath);
+            genreMapper = new GenreMapperCSV(filePath);
+            authorMapper = new AuthorMapperCSV(filePath);
+            publisherMapper = new PublisherMapperCSV(filePath);
+        }
+       
         protected override string TableName
         {
             get { return "book"; }
+        }
+
+        protected override void Load()
+        {
+            base.Load();
+
+            for (int i = 0; i < list.Count; i++) {
+                list[i].author = authorMapper.Get(list[i].AuthorID);
+                list[i].genre = genreMapper.Get(list[i].GenreID);
+                list[i].publisher = publisherMapper.Get(list[i].PublisherID);
+            }
         }
 
         protected override Book ParseEntry(string[] parameters)

@@ -9,6 +9,8 @@ namespace LIS.DataMappersCSV
 {
     public class AuthorMapperCSV : DataMapperCSV<Author>
     {
+        public AuthorMapperCSV(string path) : base(path) { }
+
         protected override string TableName
         {
             get { return "author"; }

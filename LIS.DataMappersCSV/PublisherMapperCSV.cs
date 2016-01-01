@@ -9,6 +9,8 @@ namespace LIS.DataMappersCSV
 {
     public class PublisherMapperCSV : DataMapperCSV<Publisher>
     {
+        public PublisherMapperCSV(string path) : base(path) { }
+
         protected override string TableName
         {
             get { return "publisher"; }

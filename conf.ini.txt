@@ -1,2 +1,2 @@
 DataSource=MySQL
-CsvPath=/
+CsvPath=..\\..\\..\\db_CSV\\

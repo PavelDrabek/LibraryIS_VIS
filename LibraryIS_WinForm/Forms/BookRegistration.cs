@@ -114,6 +114,12 @@ namespace LibraryIS_WinForm.Forms
         private void btnBorrowReturn_Click(object sender, EventArgs e)
         {
             Borrow borrow = borrowList1.GetSelectedBorrow();
+
+            if (borrow == null) {
+                MessageBox.Show("Please select entry");
+                return;
+            }
+
             if (borrow.IsReturned) {
                 borrow.Returned = DateTime.MinValue;
             } else {

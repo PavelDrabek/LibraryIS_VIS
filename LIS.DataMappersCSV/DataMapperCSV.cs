@@ -16,14 +16,15 @@ namespace LIS.DataMappersCSV
         protected int idCounter = 0;
         public int NextId { get { return idCounter; } }
 
-        List<T> list = null;
+        protected List<T> list = null;
 
-        private void Init(string filePath)
+        public DataMapperCSV(string filePath)
         {
             idCounter = 0;
             path = filePath + "\\" + TableName + ".csv";
             list = new List<T>();
 
+            PreLoad(filePath);
             Load();
         }
 
@@ -32,7 +33,9 @@ namespace LIS.DataMappersCSV
         protected abstract int GetID(T instance);
         protected abstract string ToCsvLine(T instance);
 
-        protected void Load()
+        protected virtual void PreLoad(string filePath) { }
+
+        protected virtual void Load()
         {
             StreamReader reader = File.OpenText(path);
             string line;
@@ -47,7 +50,7 @@ namespace LIS.DataMappersCSV
             reader.Close();
         }
 
-        protected void Save()
+        protected virtual void Save()
         {
             using (StreamWriter writer = new StreamWriter(path)) {
                 for (int i = 0; i < list.Count; i++) {
