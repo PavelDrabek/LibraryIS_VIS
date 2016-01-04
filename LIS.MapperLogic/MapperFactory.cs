@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace LIS.MapperLogic
 {
@@ -19,9 +20,32 @@ namespace LIS.MapperLogic
 
         public static void Init()
         {
-            dataSource = "CSV";
-            csvPath = "..\\..\\..\\db_CSV\\";
+            //dataSource = "CSV";
+            //csvPath = "..\\..\\..\\db_CSV\\";
+            LoadConfigFile("..\\..\\..\\conf.ini");
             isInitialized = true;
+        }
+
+        private static bool LoadConfigFile(string filePath)
+        {
+            StreamReader reader = File.OpenText(filePath);
+            string line;
+            while ((line = reader.ReadLine()) != null) {
+                string[] p = line.Split('=');
+                switch (p[0]) {
+                    case "DataSource":
+                        dataSource = p[1];
+                        break;
+                    case "CsvPath":
+                        csvPath = p[1];
+                        break;
+                    default:
+                        throw new Exception("Unknown parameter in config file: " + p[0]);
+                }
+            }
+            reader.Close();
+
+            return true;
         }
 
         public static DataLogin CreateDataLogin()

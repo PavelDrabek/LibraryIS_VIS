@@ -25,7 +25,7 @@ namespace LibraryIS_WinForm
 
             loginWindow.ShowDialog();
 
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
             //Application.Run(new FormNewBook());
 
         }

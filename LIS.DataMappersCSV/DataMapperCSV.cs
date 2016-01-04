@@ -14,7 +14,13 @@ namespace LIS.DataMappersCSV
         private string path = "";
 
         protected int idCounter = 0;
-        public int NextId { get { return idCounter; } }
+        public int NextId { get { return idCounter + 1; } }
+        public void CheckMaxID(int id)
+        {
+            if (idCounter < id) {
+                idCounter = id;
+            }
+        }
 
         protected List<T> list = null;
 
@@ -24,28 +30,28 @@ namespace LIS.DataMappersCSV
             path = filePath + "\\" + TableName + ".csv";
             list = new List<T>();
 
-            PreLoad(filePath);
+            ConstructorPreLoad(filePath);
             Load();
         }
 
         protected abstract string TableName { get; }
         protected abstract T ParseEntry(string[] parameters);
         protected abstract int GetID(T instance);
+        protected abstract void SetID(T instance, int id);
         protected abstract string ToCsvLine(T instance);
 
-        protected virtual void PreLoad(string filePath) { }
+        protected virtual void ConstructorPreLoad(string filePath) { }
 
         protected virtual void Load()
         {
+            list.Clear();
             StreamReader reader = File.OpenText(path);
             string line;
             while ((line = reader.ReadLine()) != null) {
                 T entity = ParseEntry(line.Split(';'));
                 list.Add(entity);
 
-                if (idCounter < GetID(entity)) {
-                    idCounter = GetID(entity);
-                }
+                CheckMaxID(GetID(entity));
             }
             reader.Close();
         }
@@ -62,11 +68,13 @@ namespace LIS.DataMappersCSV
 
         public override List<T> Select()
         {
+            Load();
             return new List<T>(list);
         }
 
         public override T Get(int ID)
         {
+            Load();
             for (int i = 0; i < list.Count; i++) {
                 if (GetID(list[i]) == ID) {
                     return list[i];
@@ -78,6 +86,11 @@ namespace LIS.DataMappersCSV
 
         public override bool Insert(T instance)
         {
+            Load();
+            int id = NextId;
+            CheckMaxID(id);
+            SetID(instance, id);
+
             list.Add(instance);
             Save();
             return true;
@@ -85,6 +98,7 @@ namespace LIS.DataMappersCSV
 
         public override bool Update(T instance)
         {
+            Load();
             for (int i = 0; i < list.Count; i++) {
                 if (GetID(list[i]) == GetID(instance)) {
                     list[i] = instance;
@@ -97,6 +111,7 @@ namespace LIS.DataMappersCSV
 
         public override bool Delete(int ID)
         {
+            Load();
             for (int i = 0; i < list.Count; i++) {
                 if (GetID(list[i]) == ID) {
                     list.RemoveAt(i);

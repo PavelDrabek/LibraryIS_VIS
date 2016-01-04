@@ -15,9 +15,9 @@ namespace LIS.DataMappersCSV
 
         public BookMapperCSV(string path) : base(path) { }
 
-        protected override void PreLoad(string filePath)
+        protected override void ConstructorPreLoad(string filePath)
         {
-            base.PreLoad(filePath);
+            base.ConstructorPreLoad(filePath);
             genreMapper = new GenreMapperCSV(filePath);
             authorMapper = new AuthorMapperCSV(filePath);
             publisherMapper = new PublisherMapperCSV(filePath);
@@ -56,6 +56,11 @@ namespace LIS.DataMappersCSV
         protected override int GetID(Book instance)
         {
             return instance.ID;
+        }
+
+        protected override void SetID(Book instance, int id)
+        {
+            instance.ID = id;
         }
 
         protected override string ToCsvLine(Book instance)

@@ -32,6 +32,11 @@ namespace LIS.DataMappersCSV
             return instance.ID;
         }
 
+        protected override void SetID(User instance, int id)
+        {
+            instance.ID = id;
+        }
+
         protected override string ToCsvLine(User instance)
         {
             string[] array = new string[] { instance.ID.ToString(), instance.UserName, instance.FirstName, instance.LastName };
